@@ -10,4 +10,9 @@ class DBFurnitureModel extends Model
     {
         return DBProductsModel::showProcedures("showFurniture", $limit, $offset);
     }
+
+    public static function count()
+    {
+        return DBProductsModel::countProducts("Mueble");
+    }
 }

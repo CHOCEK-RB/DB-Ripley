@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\DB;
 
 class DBProductsModel extends Model
 {
-    private static $validProcedures = ['showProducts', 'showBeauty', 'showElectrodomestics', 'showElectronics', 'showFashion', 'showFurniture', 'showToys'];
-    private static $validTables     = ['Producto'];
+    private static $validProcedures = ['showProducts', 'showBeauty', 'showElectrodomestics', 'showElectronics', 'showFashion', 'showFurniture', 'showToys', 'showAccessories', 'showBoard', 'showChair', 'showClothes', 'showComputer', 'showConstruction', 'showCouch', 'showCream', 'showDolls', 'showFootwear', 'showKitchen', 'showMakeup', 'showPerfume', 'showRefrigerator', 'showSmartphone', 'showTV', 'showTable', 'showWashing'];
+    private static $validTables     = ['Producto', 'Belleza_Cuidado', 'Electrodomestico', 'Electronica', 'Moda', 'Mueble', 'Juguetes'];
 
     public static function showProcedures(string $procedure, int $limit, int $offset)
     {

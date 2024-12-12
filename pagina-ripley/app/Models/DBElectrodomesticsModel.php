@@ -10,4 +10,9 @@ class DBElectrodomesticsModel extends Model
     {
         return DBProductsModel::showProcedures("showElectrodomestics", $limit, $offset);
     }
+
+    public static function count()
+    {
+        return DBProductsModel::countProducts("Electrodomestico");
+    }
 }

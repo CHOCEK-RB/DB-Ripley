@@ -10,4 +10,9 @@ class DBToysModel extends Model
     {
         return DBProductsModel::showProcedures("showToys", $limit, $offset);
     }
+
+    public static function count()
+    {
+        return DBProductsModel::countProducts("Juguetes");
+    }
 }

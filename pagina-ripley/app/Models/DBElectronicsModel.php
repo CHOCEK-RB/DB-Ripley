@@ -10,4 +10,9 @@ class DBElectronicsModel extends Model
     {
         return DBProductsModel::showProcedures("showElectronics", $limit, $offset);
     }
+
+    public static function count()
+    {
+        return DBProductsModel::countProducts("Electronica");
+    }
 }

@@ -10,4 +10,9 @@ class DBFashionModel extends Model
     {
         return DBProductsModel::showProcedures("showFashion", $limit, $offset);
     }
+
+    public static function count()
+    {
+        return DBProductsModel::countProducts("Moda");
+    }
 }

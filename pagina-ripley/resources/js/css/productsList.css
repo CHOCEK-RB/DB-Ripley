@@ -1,10 +1,10 @@
 .productsContainer{
 	height: 2000px;
-	max-width: 960px;
+	max-width: 1260px;
 }
 
 .productBox{
-	max-width: 290px;
+	width: 22%;
 	height: 20%;
 	padding: 10px;
 	margin: auto;

@@ -69,7 +69,7 @@ const PaginatedProducts = () => {
             </div>
             <div className="description">
               <h2 className="nameProduct">{product.nombre}</h2>
-              <h2 className="precioProduct">{product.precio}</h2>
+              <h2 className="precioProduct">S/ {product.precio}</h2>
             </div>
           </div>
         ))}
