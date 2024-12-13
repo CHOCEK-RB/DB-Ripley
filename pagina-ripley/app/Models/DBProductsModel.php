@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 class DBProductsModel extends Model
 {
     private static $validProcedures = ['showProducts', 'showBeauty', 'showElectrodomestics', 'showElectronics', 'showFashion', 'showFurniture', 'showToys', 'showAccessories', 'showBoard', 'showChair', 'showClothes', 'showComputer', 'showConstruction', 'showCouch', 'showCream', 'showDolls', 'showFootwear', 'showKitchen', 'showMakeup', 'showPerfume', 'showRefrigerator', 'showSmartphone', 'showTV', 'showTable', 'showWashing'];
-    private static $validTables     = ['Producto', 'Belleza_Cuidado', 'Electrodomestico', 'Electronica', 'Moda', 'Mueble', 'Juguetes'];
+    private static $validTables     = ['Producto', 'Belleza_Cuidado', 'Electrodomestico', 'Electronica', 'Moda', 'Mueble', 'Juguetes', 'Accesorios', 'Calsado', 'Cocina', 'Computadora', 'Construccion', 'Crema', 'Juegos_mesa', 'Lavadora', 'Maquillaje', 'Mesa', 'Muñecos', 'Perfume', 'Refrigeradora', 'Ropa', 'Silla', 'Smartphone', 'Sofa', 'Televisor'];
 
     public static function showProcedures(string $procedure, int $limit, int $offset)
     {
@@ -45,5 +45,10 @@ class DBProductsModel extends Model
     public static function count()
     {
         return self::countProducts("Producto");
+    }
+
+    public static function name()
+    {
+        return "Productos";
     }
 }

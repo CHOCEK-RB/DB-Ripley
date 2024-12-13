@@ -15,4 +15,9 @@ class DBElectrodomesticsModel extends Model
     {
         return DBProductsModel::countProducts("Electrodomestico");
     }
+
+    public static function name()
+    {
+        return "Electrodomesticos";
+    }
 }

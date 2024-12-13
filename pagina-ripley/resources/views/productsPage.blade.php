@@ -8,6 +8,11 @@
     @vite(['resources/js/showProducts.jsx'])
 </head>
 <body>
+    <script>
+        window.dataCategorie = @json([
+            'categorie' => $categorie,
+        ]);
+    </script>
     <div id="react-root"></div>
 </body>
 </html>

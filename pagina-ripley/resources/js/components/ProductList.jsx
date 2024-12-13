@@ -7,19 +7,26 @@ const PaginatedProducts = () => {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [categorie, setCategorie] = useState('');
+  const [name, setName] = useState('');
 
   const navigate = useNavigate();
   const location = useLocation();
 
   const fetchProducts = async (page = 1) => {
     try {
+      const { categorie} = window.dataCategorie;
+      setCategorie(categorie);
+
       const response = await axios.post('api/products', {
         page: page,
+        categorie: categorie,
       })
-      const { data, currentPage , totalPages} = response.data;
+      const { data, currentPage , totalPages, name} = response.data;
       setProducts(data);
       setCurrentPage(currentPage);
       setTotalPages(totalPages);
+      setName(name);
     } catch (error) {
       console.error("Error al obtener los datos de la API", error);
     }
@@ -32,7 +39,7 @@ const PaginatedProducts = () => {
 
 
   const handlePageChange = (page) => {
-    navigate(`/products?page=${page}`); 
+    navigate(`/${categorie}?page=${page}`); 
     fetchProducts(page);
   };
 
@@ -56,7 +63,7 @@ const PaginatedProducts = () => {
 
   return (
     <div>
-      <h1>Productos</h1>
+      <h1>{name}</h1>
       <div className="productsContainer">
         {products.map((product) => (
           <div

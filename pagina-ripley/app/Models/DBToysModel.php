@@ -15,4 +15,9 @@ class DBToysModel extends Model
     {
         return DBProductsModel::countProducts("Juguetes");
     }
+
+    public static function name()
+    {
+        return "Juguetes";
+    }
 }

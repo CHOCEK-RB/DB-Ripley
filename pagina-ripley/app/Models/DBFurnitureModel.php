@@ -15,4 +15,9 @@ class DBFurnitureModel extends Model
     {
         return DBProductsModel::countProducts("Mueble");
     }
+
+    public static function name()
+    {
+        return "Muebles";
+    }
 }

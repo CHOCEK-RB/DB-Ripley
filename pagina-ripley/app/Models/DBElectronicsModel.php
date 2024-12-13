@@ -15,4 +15,9 @@ class DBElectronicsModel extends Model
     {
         return DBProductsModel::countProducts("Electronica");
     }
+
+    public static function name()
+    {
+        return "Electronica";
+    }
 }

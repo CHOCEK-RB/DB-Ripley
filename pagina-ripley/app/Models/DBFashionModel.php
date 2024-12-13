@@ -15,4 +15,9 @@ class DBFashionModel extends Model
     {
         return DBProductsModel::countProducts("Moda");
     }
+
+    public static function name()
+    {
+        return "Moda";
+    }
 }

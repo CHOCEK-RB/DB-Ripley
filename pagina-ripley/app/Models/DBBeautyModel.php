@@ -15,4 +15,9 @@ class DBBeautyModel extends Model
     {
         return DBProductsModel::countProducts("Belleza_Cuidado");
     }
+
+    public static function name()
+    {
+        return "Belleza y Cuidado";
+    }
 }
