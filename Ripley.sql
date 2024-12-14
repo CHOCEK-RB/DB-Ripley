@@ -1956,7 +1956,7 @@ DROP TABLE IF EXISTS `Promocion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Promocion` (
-  `ID` int(11) NOT NULL DEFAULT 0,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `ID_Producto` int(11) NOT NULL DEFAULT 0,
   `nombre` varchar(100) NOT NULL DEFAULT '',
   `descuento` decimal(3,2) NOT NULL DEFAULT 0.00,
