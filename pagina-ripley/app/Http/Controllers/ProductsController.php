@@ -23,7 +23,7 @@ class ProductsController extends Controller
         "calsado"               => "App\\Models\\DBFootwearModel",
         "mueble"                => "App\\Models\\DBFurnitureModel",
         "cocina"                => "App\\Models\\DBKitchenModel",
-        "maquillage"            => "App\\Models\\DBMakeupModel",
+        "maquillaje"            => "App\\Models\\DBMakeupModel",
         "perfume"               => "App\\Models\\DBPerfumeModel",
         "productos"             => "App\\Models\\DBProductsModel",
         "refrigeradora"         => "App\\Models\\DBRefrigeratorModel",
@@ -53,7 +53,7 @@ class ProductsController extends Controller
         "muñeco"                => 'showDolls',
         "calsado"               => 'showFootwear',
         "cocina"                => 'showKitchen',
-        "maquillage"            => 'showMakeup',
+        "maquillaje"            => 'showMakeup',
         "perfume"               => 'showPerfume',
         "refrigeradora"         => 'showRefrigerator',
         "smartphone"            => 'showSmartphone',
@@ -101,7 +101,6 @@ class ProductsController extends Controller
             'categorie' => 'required|string',
             'page'      => 'required|int|min:1',
         ]);
-
         $page       = $request->input('page');
         $categorie  = $request->input('categorie');
         $modelClass = self::$categoryModelMap[$categorie];

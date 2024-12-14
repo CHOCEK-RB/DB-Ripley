@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import "../css/productsList.css"
 import axios from "axios";
 
@@ -69,15 +69,16 @@ const PaginatedProducts = () => {
           <div
             key={product.ID}
             className="productBox"
-            onClick={() => navigate(`/product/${product.ID}`)}
           >
-            <div className="imageProduct">
-              <img src={`/src/${product.ID}.webp`}/>
-            </div>
-            <div className="description">
-              <h2 className="nameProduct">{product.nombre}</h2>
-              <h2 className="precioProduct">S/ {product.precio}</h2>
-            </div>
+            <a href={`/productos/information?categorie=${product.categoria}&id=${product.ID}`}>
+              <div className="imageProduct">
+                <img src={`/src/${product.ID}.webp`}/>
+              </div>
+              <div className="description">
+                <h2 className="nameProduct">{product.nombre}</h2>
+                <h2 className="precioProduct">S/ {product.precio}</h2>
+              </div>
+            </a>
           </div>
         ))}
       </div>

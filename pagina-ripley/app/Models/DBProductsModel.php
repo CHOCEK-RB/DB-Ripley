@@ -23,6 +23,16 @@ class DBProductsModel extends Model
         }
     }
 
+    public static function informationProcedures(string $procedure, int $id)
+    {
+        try {
+            return DB::select("CALL $procedure(?)", [$id]);
+        } catch (\Exception $e) {
+            \Log::error("Error al ejecutar el procedimiento $procedure: " . $e->getMessage(), ['stack' => $e->getTraceAsString()]);
+            return null;
+        }
+    }
+
     public static function countProducts(string $tableProducts)
     {
         if (! in_array($tableProducts, self::$validTables)) {
