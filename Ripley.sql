@@ -2353,7 +2353,7 @@ DROP TABLE IF EXISTS `Variante`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Variante` (
-  `ID` int(11) NOT NULL DEFAULT 0,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `ID_Producto` int(11) NOT NULL DEFAULT 0,
   `color` varchar(10) NOT NULL DEFAULT '',
   `cantidad` int(11) NOT NULL DEFAULT 0,
@@ -2363,7 +2363,7 @@ CREATE TABLE `Variante` (
   KEY `ID_Administrador` (`ID_Administrador`),
   CONSTRAINT `Variante_ibfk_1` FOREIGN KEY (`ID_Producto`) REFERENCES `Producto` (`ID`),
   CONSTRAINT `Variante_ibfk_2` FOREIGN KEY (`ID_Administrador`) REFERENCES `Administrador_productos` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2372,6 +2372,8 @@ CREATE TABLE `Variante` (
 
 LOCK TABLES `Variante` WRITE;
 /*!40000 ALTER TABLE `Variante` DISABLE KEYS */;
+INSERT INTO `Variante` VALUES
+(1,203014,'#282a36',15,1);
 /*!40000 ALTER TABLE `Variante` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2641,6 +2643,25 @@ DELIMITER ;;
 CREATE DEFINER=`chocek`@`localhost` PROCEDURE `createPromotion`(IN producto int, IN nombre varchar(100), IN descuento decimal(3,2), IN inicio date, IN fin date, IN administrador bigint(20))
 BEGIN 
 	INSERT INTO Promocion(ID_Producto, nombre, descuento, fecha_inicio, fecha_fin, ID_Administrador) VALUES(producto, nombre, descuento, inicio, fin, administrador);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `createVariant` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`chocek`@`localhost` PROCEDURE `createVariant`(IN producto int, IN color varchar(10), IN cantidad int, IN administrador int)
+BEGIN
+	INSERT INTO Variante(ID_Producto, color, cantidad, ID_Administrador) VALUES (producto, color, cantidad, administrador);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -4613,4 +4634,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2024-12-13 22:54:45
+-- Dump completed on 2024-12-13 23:04:42
