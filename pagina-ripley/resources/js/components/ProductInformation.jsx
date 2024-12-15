@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import "../css/productsList.css";
 import axios from "axios";
 
-const PaginatedProducts = () => {
+const ProductsInformation = () => {
   const [information, setInformation] = useState({});
   const [id, setId] = useState(1);
   const [categorie, setCategorie] = useState('');
@@ -85,4 +85,4 @@ const PaginatedProducts = () => {
   );
 };
 
-export default PaginatedProducts;
+export default ProductsInformation;

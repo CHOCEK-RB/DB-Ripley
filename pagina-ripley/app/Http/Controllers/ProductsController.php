@@ -85,7 +85,7 @@ class ProductsController extends Controller
     public static function showProductsPaginated(Request $request, string $categorie)
     {
         $request->validate([
-            'page' => 'required|int|min:1',
+            'page' => 'int|min:1',
         ]);
 
         if (! isset(self::$categoryModelMap[$categorie])) {
@@ -109,5 +109,10 @@ class ProductsController extends Controller
         $paginatedData = self::paginateProducts($modelClass, $procedure, $page);
 
         return response()->json($paginatedData);
+    }
+
+    public static function home()
+    {
+        return redirect('/productos');
     }
 }

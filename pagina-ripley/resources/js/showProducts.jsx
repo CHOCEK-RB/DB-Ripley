@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import PaginatedProducts from "./components/ProductList";
+import ProductsList from "./components/ProductList";
+import LogoutTemp from "./components/LogoutTemp";
 
 ReactDOM.createRoot(document.getElementById("react-root")).render(
   <BrowserRouter>
-    <PaginatedProducts />
+    <ProductsList />
+    <LogoutTemp />
   </BrowserRouter>
 );

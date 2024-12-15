@@ -2591,8 +2591,8 @@ CREATE TABLE `sessions` (
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
 INSERT INTO `sessions` VALUES
-('soJzlUufUZa8XbpyAzEzHzoMCqRtn8h7M2JTcYQ4',NULL,'127.0.0.1','Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0','YTozOntzOjY6Il90b2tlbiI7czo0MDoidk5ZM3NHZU5KSEFqT2NhT0tvS1IxSTB1S0RNcUV1ZUREcnViR2NCVCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6ODU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcm9kdWN0b3MvaW5mb3JtYXRpb24/Y2F0ZWdvcmllPWp1Z3VldGVzLWNvbnN0cnVjY2lvbiZpZD01MDEwMDAiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19',1734146329),
-('uMbXd2fYCBK1KbqjtQWgikj7kF1ejUW0XPtnT8zb',NULL,'127.0.0.1','Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0','YTozOntzOjY6Il90b2tlbiI7czo0MDoiYnduc0JWaUpUdGRVM3hnNWo0RHY5ZkRHcnA4MlczdExGU21FcUtaUyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcm9kdWN0b3M/cGFnZT0xIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==',1734144052);
+('f8F97Os4nPDh9LCqOarSbSPd1U3naoOUZeQVlV1s',NULL,'127.0.0.1','Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0','YTozOntzOjY6Il90b2tlbiI7czo0MDoidkFxYlEwajQ5bDdTR3lBZ1hIY0h4TGdSVUtyNUhCRkMwTDUwazRrWCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcm9kdWN0b3MiO319',1734232958),
+('TfJczmzp3RcDyHvYNuKOZWlwPHBeYS9jSKh80rnS',1,'127.0.0.1','Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0','YTo0OntzOjY6Il90b2tlbiI7czo0MDoiMlAxaGJpdHBlbU1KdUs2RHJVWWtpODA1S0x0Mm1vbHozTWREVWlRayI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcm9kdWN0b3MiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=',1734205570);
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2613,7 +2613,7 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3871,7 +3871,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `register_administrador` */;
+/*!50003 DROP PROCEDURE IF EXISTS `registerAdministrator` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -3879,7 +3879,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 /*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
 DELIMITER ;;
-CREATE DEFINER=`chocek`@`localhost` PROCEDURE `register_administrador`(IN `nombres` VARCHAR(60), IN `apellidos` VARCHAR(60), IN `email` VARCHAR(255), IN `psswd` VARCHAR(255))
+CREATE DEFINER=`chocek`@`localhost` PROCEDURE `registerAdministrator`(IN `nombres` VARCHAR(60), IN `apellidos` VARCHAR(60), IN `dni` INT, IN `telefono` INT, IN `email` VARCHAR(255), IN `psswd` VARCHAR(255))
 BEGIN    
     DECLARE user_id BIGINT(20);
     
@@ -3904,7 +3904,7 @@ BEGIN
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
     
-    INSERT INTO Informacion(ID, nombres, apellidos) VALUES (user_id, nombres, apellidos);
+    INSERT INTO Informacion(ID, nombres, apellidos, telefono, DNI) VALUES (user_id, nombres, apellidos, telefono, dni);
     INSERT INTO Administrador_productos(ID) VALUES (user_id);
     
 END ;;
@@ -3915,7 +3915,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `register_cliente` */;
+/*!50003 DROP PROCEDURE IF EXISTS `registerClient` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -3923,7 +3923,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 /*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
 DELIMITER ;;
-CREATE DEFINER=`chocek`@`localhost` PROCEDURE `register_cliente`(IN `nombres` VARCHAR(60), IN `apellidos` VARCHAR(60), IN `email` VARCHAR(255), IN `psswd` VARCHAR(255))
+CREATE DEFINER=`chocek`@`localhost` PROCEDURE `registerClient`(IN `nombres` VARCHAR(60), IN `apellidos` VARCHAR(60), IN `dni` INT, IN `telefono` INT, IN `email` VARCHAR(255), IN `psswd` VARCHAR(255))
 BEGIN    
     DECLARE user_id BIGINT(20);
     
@@ -3948,7 +3948,7 @@ BEGIN
     EXECUTE stmt;
     DEALLOCATE PREPARE stmt;
     
-    INSERT INTO Informacion(ID, nombres, apellidos) VALUES (user_id, nombres, apellidos);
+    INSERT INTO Informacion(ID, nombres, apellidos, telefono, DNI) VALUES (user_id, nombres, apellidos, telefono, dni);
     INSERT INTO Cliente(ID) VALUES (user_id);
     
 END ;;
@@ -4634,4 +4634,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2024-12-13 23:04:42
+-- Dump completed on 2024-12-14 22:24:45
