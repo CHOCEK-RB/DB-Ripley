@@ -1,0 +1,175 @@
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1px 20px;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    height: 80px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.menu .inicio{
+    color: #fff;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.menu .inicio-box{
+    margin: 10px;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.menu-button span{
+    font-size: 18px;
+}
+
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+    width: 200px;
+}
+
+.menu-dropdown.visible {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.menu-dropdown > div {
+    background-color: #444;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    text-align: center;
+    position: relative;
+}
+
+.menu-dropdown > div:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+.menu-dropdown .sub-options {
+    display: none;
+    margin-top: 10px;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 180px;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.menu-dropdown > div:hover .sub-options {
+    display: block;
+}
+
+.menu-dropdown .sub-options div {
+    background-color: #444;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.menu-dropdown .sub-options div:hover {
+    background-color: #555;
+}
+
+.separator {
+    margin: 0 15px;
+    color: #fff;
+}
+
+.search-bar {
+    padding-left: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    width: 500px;
+    padding: 13px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px 0 0 3px;
+}
+
+.search-bar button {
+    background-color: gray;
+    border: none;
+    cursor: pointer;
+    padding: 10.4px 10px;
+    border-radius: 0 3px 3px 0;
+    font-size: 16px;
+}
+
+.right-options {
+    padding-left: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.right-options a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.right-options a:hover {
+    text-decoration: underline;
+}
+
+.cart-icon {
+    font-size: 20px;
+}
+
+body {
+    margin: 0;
+}
+
+.content {
+    margin-top: 100px;
+    padding: 20px;
+}
+
+.sub-options a {
+    text-decoration: none;
+    color: inherit;
+}

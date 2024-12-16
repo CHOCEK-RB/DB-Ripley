@@ -44,6 +44,11 @@ class LoginController extends Controller
         return view('register');
     }
 
+    public static function showRegisterPrivate()
+    {
+        return view('registerPrivate');
+    }
+
     public static function registerClient(Request $request)
     {
 
@@ -80,6 +85,43 @@ class LoginController extends Controller
                 'error'   => $e,
             ]);
         }
+    }
 
+    public static function registerAdministrador(Request $request)
+    {
+
+        try {
+            $credentials = $request->validate([
+                'nombres'   => 'required|string|max:60',
+                'apellidos' => 'required|string|max:60',
+                'dni'       => 'required|numeric|digits:8',
+                'telefono'  => 'required|numeric|digits_between:9,15',
+                'email'     => 'required|email|unique:users,email',
+                'password'  => 'required|string|min:8',
+            ]);
+
+            $user = User::create([
+                'email'    => $credentials['email'],
+                'password' => Hash::make($credentials['password']),
+            ]);
+
+            $query = DBUserModel::registerAdministrator($credentials['nombres'], $credentials['apellidos'], $credentials['dni'], $credentials['telefono'], $credentials['email'], $credentials['password']);
+
+            if (! $query) {
+                $user->delete();
+                return response()->json([
+                    'success' => false,
+                    'error'   => "Error al registrar al usuario en la base de datos",
+                ]);
+            }
+
+            return response()->json(['success' => true]);
+
+        } catch (Exception $e) {
+            return response()->json([
+                'success' => false,
+                'error'   => $e,
+            ]);
+        }
     }
 }

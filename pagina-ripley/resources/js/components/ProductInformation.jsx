@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import "../css/productsList.css";
+import "../css/productInformation.css";
 import axios from "axios";
 
-const ProductsInformation = () => {
+const PaginatedProducts = () => {
   const [information, setInformation] = useState({});
   const [id, setId] = useState(1);
   const [categorie, setCategorie] = useState('');
+  const [quantity, setQuantity] = useState(1); // Estado para la cantidad
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -54,6 +55,15 @@ const ProductsInformation = () => {
     }
   }, [location.search]);
 
+  // Funciones para incrementar y decrementar la cantidad
+  const increaseQuantity = () => {
+    setQuantity((prev) => prev + 1);
+  };
+
+  const decreaseQuantity = () => {
+    setQuantity((prev) => (prev > 1 ? prev - 1 : prev));
+  };
+
   return (
     <div>
       <div className="productBox">
@@ -61,13 +71,22 @@ const ProductsInformation = () => {
           <img src={`/src/${id}.webp`} alt={`Producto ${id}`} />
         </div>
         <div className="informationProduct">
-          {/* Renderiza condicionalmente para evitar errores */}
           {information.nombre ? (
             <>
               <h2 className="nombre">{information.nombre}</h2>
               <div className="priceContainer">
                 <dd>Normal</dd>
                 <dt>{information.precio}</dt>
+              </div>
+              <div className="quantityControl">
+                <button onClick={decreaseQuantity}>-</button>
+                <input
+                  type="text"
+                  value={quantity}
+                  readOnly
+                  className="quantityInput"
+                />
+                <button onClick={increaseQuantity}>+</button>
               </div>
             </>
           ) : (
@@ -85,4 +104,4 @@ const ProductsInformation = () => {
   );
 };
 
-export default ProductsInformation;
+export default PaginatedProducts;

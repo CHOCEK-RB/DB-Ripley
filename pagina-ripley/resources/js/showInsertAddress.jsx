@@ -1,12 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import Bar from "./components/slideBar";
-import InformationProducts from "./components/ProductInformation";
+import Address from "./components/InsertAddress";
 
 ReactDOM.createRoot(document.getElementById("react-root")).render(
   <BrowserRouter>
-    <Bar />
-    <InformationProducts />
+    <Address />
   </BrowserRouter>
 );
