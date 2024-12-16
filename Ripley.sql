@@ -875,7 +875,7 @@ INSERT INTO `Informacion` VALUES
 (64,'Belen','Sanchez',NULL,NULL,987654372,78901239),
 (65,'Elisabeth','Lopez',NULL,NULL,987654373,89012350),
 (66,'Luciana','Hernandez',NULL,NULL,987654374,90123461),
-(67,'Carlos Perez','Lopes','M','2023-12-03',983827123,38129312);
+(67,'Carlos Jose','Lopes','F','2023-12-03',983827123,38129312);
 /*!40000 ALTER TABLE `Informacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2743,30 +2743,6 @@ INSERT INTO `Televisor` VALUES
 UNLOCK TABLES;
 
 --
--- Table structure for table `Usuario`
---
-
-DROP TABLE IF EXISTS `Usuario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Usuario` (
-  `ID` int(11) NOT NULL DEFAULT 0,
-  `correo` text NOT NULL DEFAULT '',
-  `contraseña` text NOT NULL DEFAULT '',
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Usuario`
---
-
-LOCK TABLES `Usuario` WRITE;
-/*!40000 ALTER TABLE `Usuario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Usuario` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `Variante`
 --
 
@@ -2896,193 +2872,6 @@ INSERT INTO `Variante` VALUES
 UNLOCK TABLES;
 
 --
--- Table structure for table `cache`
---
-
-DROP TABLE IF EXISTS `cache`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cache` (
-  `key` varchar(255) NOT NULL,
-  `value` mediumtext NOT NULL,
-  `expiration` int(11) NOT NULL,
-  PRIMARY KEY (`key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `cache`
---
-
-LOCK TABLES `cache` WRITE;
-/*!40000 ALTER TABLE `cache` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cache` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `cache_locks`
---
-
-DROP TABLE IF EXISTS `cache_locks`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cache_locks` (
-  `key` varchar(255) NOT NULL,
-  `owner` varchar(255) NOT NULL,
-  `expiration` int(11) NOT NULL,
-  PRIMARY KEY (`key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `cache_locks`
---
-
-LOCK TABLES `cache_locks` WRITE;
-/*!40000 ALTER TABLE `cache_locks` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cache_locks` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `failed_jobs`
---
-
-DROP TABLE IF EXISTS `failed_jobs`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `failed_jobs` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `uuid` varchar(255) NOT NULL,
-  `connection` text NOT NULL,
-  `queue` text NOT NULL,
-  `payload` longtext NOT NULL,
-  `exception` longtext NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `failed_jobs`
---
-
-LOCK TABLES `failed_jobs` WRITE;
-/*!40000 ALTER TABLE `failed_jobs` DISABLE KEYS */;
-/*!40000 ALTER TABLE `failed_jobs` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `job_batches`
---
-
-DROP TABLE IF EXISTS `job_batches`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `job_batches` (
-  `id` varchar(255) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `total_jobs` int(11) NOT NULL,
-  `pending_jobs` int(11) NOT NULL,
-  `failed_jobs` int(11) NOT NULL,
-  `failed_job_ids` longtext NOT NULL,
-  `options` mediumtext DEFAULT NULL,
-  `cancelled_at` int(11) DEFAULT NULL,
-  `created_at` int(11) NOT NULL,
-  `finished_at` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `job_batches`
---
-
-LOCK TABLES `job_batches` WRITE;
-/*!40000 ALTER TABLE `job_batches` DISABLE KEYS */;
-/*!40000 ALTER TABLE `job_batches` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `jobs`
---
-
-DROP TABLE IF EXISTS `jobs`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `jobs` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `queue` varchar(255) NOT NULL,
-  `payload` longtext NOT NULL,
-  `attempts` tinyint(3) unsigned NOT NULL,
-  `reserved_at` int(10) unsigned DEFAULT NULL,
-  `available_at` int(10) unsigned NOT NULL,
-  `created_at` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `jobs_queue_index` (`queue`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `jobs`
---
-
-LOCK TABLES `jobs` WRITE;
-/*!40000 ALTER TABLE `jobs` DISABLE KEYS */;
-/*!40000 ALTER TABLE `jobs` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `migrations`
---
-
-DROP TABLE IF EXISTS `migrations`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `migrations` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `migration` varchar(255) NOT NULL,
-  `batch` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `migrations`
---
-
-LOCK TABLES `migrations` WRITE;
-/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES
-(1,'0001_01_01_000000_create_users_table',1);
-/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `password_reset_tokens`
---
-
-DROP TABLE IF EXISTS `password_reset_tokens`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `password_reset_tokens` (
-  `email` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `password_reset_tokens`
---
-
-LOCK TABLES `password_reset_tokens` WRITE;
-/*!40000 ALTER TABLE `password_reset_tokens` DISABLE KEYS */;
-/*!40000 ALTER TABLE `password_reset_tokens` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `sessions`
 --
 
@@ -3109,7 +2898,7 @@ CREATE TABLE `sessions` (
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
 INSERT INTO `sessions` VALUES
-('enYECZih6CpqTCJge3RKagvYvHGlU0X3fV5Xvcqb',67,'127.0.0.1','Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0','YTo0OntzOjY6Il90b2tlbiI7czo0MDoiQlI0cmZPdHBhck1lTW1yMGdwNE0yOWcwYXdlUHN5d2Y2Q0tDWUpleSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC91c2VyIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6Njc7fQ==',1734310155);
+('Q5i7v6OPYv8G3wSIs8TMdEDyC8MVgNlEjmHBR6Vn',NULL,'127.0.0.1','Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0','YTozOntzOjY6Il90b2tlbiI7czo0MDoiSkQzZk96UTNlVk5CbjcxQ2l3WlhtWkdYRVJmWVU0cWVreW5JVHNnMyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcm9kdWN0b3M/cGFnZT0xNiI7fX0=',1734311806);
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6384,4 +6173,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2024-12-15 19:50:22
+-- Dump completed on 2024-12-15 20:24:25
