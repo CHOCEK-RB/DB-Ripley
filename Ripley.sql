@@ -388,7 +388,7 @@ CREATE TABLE `Compra` (
   `hora` time NOT NULL,
   `monto` decimal(65,2) NOT NULL DEFAULT 0.00,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -397,6 +397,32 @@ CREATE TABLE `Compra` (
 
 LOCK TABLES `Compra` WRITE;
 /*!40000 ALTER TABLE `Compra` DISABLE KEYS */;
+INSERT INTO `Compra` VALUES
+(1,'2024-01-01','10:00:00',100.00),
+(2,'2024-01-02','11:00:00',150.50),
+(3,'2024-01-03','12:30:00',200.75),
+(4,'2024-01-04','09:15:00',50.00),
+(5,'2024-01-05','14:45:00',75.25),
+(6,'2024-01-06','08:30:00',300.00),
+(7,'2024-01-07','13:00:00',120.40),
+(8,'2024-01-08','15:20:00',90.90),
+(9,'2024-01-09','10:10:00',60.60),
+(10,'2024-01-10','16:30:00',45.55),
+(11,'2024-01-11','17:45:00',80.80),
+(12,'2024-01-12','19:15:00',55.25),
+(13,'2024-01-13','20:30:00',130.10),
+(14,'2024-01-14','21:05:00',99.99),
+(15,'2024-01-15','22:15:00',250.50),
+(16,'2024-01-16','23:30:00',400.25),
+(17,'2024-01-17','12:45:00',175.85),
+(18,'2024-01-18','11:50:00',85.40),
+(19,'2024-01-19','09:05:00',95.95),
+(20,'2024-01-20','08:20:00',60.40),
+(21,'2024-01-21','14:10:00',110.80),
+(22,'2024-01-22','15:55:00',70.70),
+(23,'2024-01-23','17:25:00',130.30),
+(24,'2024-01-24','18:35:00',220.20),
+(25,'2024-01-25','19:50:00',300.90);
 /*!40000 ALTER TABLE `Compra` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -582,6 +608,31 @@ CREATE TABLE `Direcccion_Cliente` (
 LOCK TABLES `Direcccion_Cliente` WRITE;
 /*!40000 ALTER TABLE `Direcccion_Cliente` DISABLE KEYS */;
 INSERT INTO `Direcccion_Cliente` VALUES
+(11,'Argentina','Buenos Aires','Av. Corrientes 1234'),
+(12,'Chile','Santiago','Calle Los Libertadores 567'),
+(13,'Colombia','Bogotá','Carrera 7 No. 45-67'),
+(14,'México','Ciudad de México','Paseo de la Reforma 234'),
+(15,'Perú','Lima','Av. Javier Prado 456'),
+(16,'Uruguay','Montevideo','Calle 18 de Julio 789'),
+(17,'Paraguay','Asunción','Av. España 321'),
+(18,'Brasil','São Paulo','Rua da Consolação 123'),
+(19,'Venezuela','Caracas','Avenida Bolívar 456'),
+(20,'Ecuador','Quito','Calle Amazonas 789'),
+(21,'Bolivia','La Paz','Av. Mariscal Santa Cruz 234'),
+(22,'Chile','Valparaíso','Calle Errázuriz 567'),
+(23,'Argentina','Córdoba','Av. Colón 890'),
+(24,'Colombia','Medellín','Carrera 80 No. 45-12'),
+(25,'México','Guadalajara','Av. Vallarta 1234'),
+(26,'Perú','Arequipa','Calle San Francisco 567'),
+(27,'Uruguay','Salto','Av. Artigas 890'),
+(28,'Paraguay','Ciudad del Este','Avenida Paraná 234'),
+(29,'Brasil','Rio de Janeiro','Rua do Ouvidor 456'),
+(30,'Venezuela','Maracaibo','Avenida El Milagro 789'),
+(31,'Ecuador','Guayaquil','Calle Sucre 1234'),
+(32,'Bolivia','Santa Cruz','Av. Banzer 567'),
+(33,'Chile','Concepción','Calle OHiggins 890'),
+(34,'Argentina','Mendoza','Av. San Martín 234'),
+(35,'Colombia','Cali','Carrera 1 No. 2-3'),
 (67,'Peru','Arequipa','Avenida Bolognesi');
 /*!40000 ALTER TABLE `Direcccion_Cliente` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -895,8 +946,6 @@ CREATE TABLE `Informacion_compra` (
   `cantidad` int(11) NOT NULL,
   PRIMARY KEY (`ID_Compra`,`ID_Producto`,`ID_Promocion`,`ID_Variante`),
   KEY `ID_Producto` (`ID_Producto`),
-  KEY `ID_Promocion` (`ID_Promocion`),
-  KEY `ID_Variante` (`ID_Variante`),
   CONSTRAINT `Informacion_compra_ibfk_1` FOREIGN KEY (`ID_Compra`) REFERENCES `Compra` (`ID`),
   CONSTRAINT `Informacion_compra_ibfk_2` FOREIGN KEY (`ID_Producto`) REFERENCES `Producto` (`ID`),
   CONSTRAINT `Informacion_compra_ibfk_3` FOREIGN KEY (`ID_Promocion`) REFERENCES `Promocion` (`ID`),
@@ -939,6 +988,31 @@ CREATE TABLE `Informacion_pago` (
 LOCK TABLES `Informacion_pago` WRITE;
 /*!40000 ALTER TABLE `Informacion_pago` DISABLE KEYS */;
 INSERT INTO `Informacion_pago` VALUES
+(11,10001,1234,'2025-12-31','Juan','Pérez'),
+(12,10002,1235,'2026-01-15','María','Gómez'),
+(13,10003,1236,'2026-02-20','Carlos','López'),
+(14,10004,1237,'2025-11-30','Ana','Martínez'),
+(15,10005,1238,'2025-10-10','Luis','Hernández'),
+(16,10006,1239,'2026-03-05','Laura','Ramírez'),
+(17,10007,1240,'2025-09-25','José','Torres'),
+(18,10008,1241,'2026-04-12','Sofía','Sánchez'),
+(19,10009,1242,'2025-08-15','David','Mendoza'),
+(20,10010,1243,'2026-05-30','Isabel','Jiménez'),
+(21,10011,1244,'2025-07-20','Fernando','Vásquez'),
+(22,10012,1245,'2026-06-18','Patricia','Castillo'),
+(23,10013,1246,'2025-06-22','Javier','Romero'),
+(24,10014,1247,'2026-07-15','Carmen','Salazar'),
+(25,10015,1248,'2025-05-10','Diego','Rojas'),
+(26,10016,1249,'2026-08-25','Valeria','Córdoba'),
+(27,10017,1250,'2025-04-30','Andrés','Pacheco'),
+(28,10018,1251,'2026-09-12','Gabriela','Núñez'),
+(29,10019,1252,'2025-03-15','Ricardo','Márquez'),
+(30,10020,1253,'2026-10-05','Natalia','Peña'),
+(31,10021,1254,'2025-02-28','Héctor','Ceballos'),
+(32,10022,1255,'2026-11-20','Claudia','García'),
+(33,10023,1256,'2025-01-10','Eduardo','Figueroa'),
+(34,10024,1257,'2026-12-31','Silvia','Acuña'),
+(35,10025,1258,'2025-12-01','Oscar','Valenzuela'),
 (67,3812212342123412,123,'2025-01-09','Carlos Perez','Lopes Rojas');
 /*!40000 ALTER TABLE `Informacion_pago` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -2426,6 +2500,32 @@ CREATE TABLE `Realiza_Compra` (
 
 LOCK TABLES `Realiza_Compra` WRITE;
 /*!40000 ALTER TABLE `Realiza_Compra` DISABLE KEYS */;
+INSERT INTO `Realiza_Compra` VALUES
+(11,1),
+(12,2),
+(13,3),
+(14,4),
+(15,5),
+(16,6),
+(17,7),
+(18,8),
+(19,9),
+(20,10),
+(21,11),
+(22,12),
+(23,13),
+(24,14),
+(25,15),
+(26,16),
+(27,17),
+(28,18),
+(29,19),
+(30,20),
+(31,21),
+(32,22),
+(33,23),
+(34,24),
+(35,25);
 /*!40000 ALTER TABLE `Realiza_Compra` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2898,7 +2998,7 @@ CREATE TABLE `sessions` (
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
 INSERT INTO `sessions` VALUES
-('Q5i7v6OPYv8G3wSIs8TMdEDyC8MVgNlEjmHBR6Vn',NULL,'127.0.0.1','Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0','YTozOntzOjY6Il90b2tlbiI7czo0MDoiSkQzZk96UTNlVk5CbjcxQ2l3WlhtWkdYRVJmWVU0cWVreW5JVHNnMyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcm9kdWN0b3M/cGFnZT0xNiI7fX0=',1734311806);
+('Q5i7v6OPYv8G3wSIs8TMdEDyC8MVgNlEjmHBR6Vn',NULL,'127.0.0.1','Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0','YTozOntzOjY6Il90b2tlbiI7czo0MDoiSkQzZk96UTNlVk5CbjcxQ2l3WlhtWkdYRVJmWVU0cWVreW5JVHNnMyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcm9kdWN0b3MiO319',1734312811);
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6173,4 +6273,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2024-12-15 20:24:25
+-- Dump completed on 2024-12-15 20:55:05
